@@ -3,3 +3,7 @@
 # 필수조건
 - node.js 설치
 - npx 설치 : npm install npx -g
+
+
+# npm install
+- npm i axios     (data fetch (API) )

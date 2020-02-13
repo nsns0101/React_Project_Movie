@@ -1,50 +1,36 @@
 import React from 'react';
+import axios from 'axios';    //fetch로 get하는 것 보다 시간 절약
 
 //class Component  (function Component를 쓰면 동적 state를 못씀)
 class App extends React.Component {
 
-  //생성자 함수
-  constructor(props) {
-    super(props);
-    console.log("constructor")
-  }
-
-  //동적으로 바꿀 값을 넣을 것
   state = {
-    count: 0,
+    isLoading: true,
+    movies: [],
 
   }
 
-  _add = () => {
-    this.setState(current => ({
-      count: current.count + 1
-    }));
-  }
-  _minus = () => {
-    this.setState(current => ({
-      count: this.state.count - 1
-    }));
-  };
-
-  //웹이 실행될 때 실행되는 함수
-  componentDidMount() {
-    console.log("componentDidMount");
+  getMovies = async () => {
+    const movies = await axios.get("https://yts-proxy.now.sh/list_movies.json");
+    console.log("a" + movies);
+    this.state.isLoading = false;
   }
 
-  //웹이 업데이트 될 때 실행
-  componentDidUpdate() {
-    console.log("componentDidUpdate");
+  //render 함수가 실행되면 호출하는 함수
+  componentDidMount() { //render가 되면 실행하는 함수
+    // console.log("compontDidMount 함수 실행");
+    this.getMovies();
   }
-
 
   render() {  //React는 Class의 render메서드를 자동실행
+    // console.log("render 함수 실행");     
+    const { isLoading } = this.state;
     return (
       <div>
-        <h1> The number is : {this.state.count}</h1>
-        <button onClick={this._add}>Add</button>
-        <button onClick={this._minus}>Minus</button>
+        {isLoading ? "Loading..." : "We are ready"}
       </div>
     );
+
   };
 }
 
