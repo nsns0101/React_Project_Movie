@@ -22,3 +22,11 @@
         - "deploy": "gh-pages -d build",
         - "predeploy": "npm run build" 
 
+- 4. npm run deploy
+    - https://nsns0101.github.io/react_project_movie 에서 확인
+
+
+- 5. react router
+    - npm install react-router-dom
+
+
