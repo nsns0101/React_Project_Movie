@@ -26,7 +26,8 @@
     - https://nsns0101.github.io/react_project_movie 에서 확인
 
 
-- 5. react router
-    - npm install react-router-dom
+## react router
+- 1. npm install react-router-dom
+- 2. src안에 components, routes 폴더 생성
 
 
