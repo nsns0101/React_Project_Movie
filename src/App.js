@@ -12,7 +12,7 @@ function App() {
       {/* exact={true} => 오직 자신의 url에 해당하는 것만 출력 */}
       <Route path="/" exact={true} component={Home} />
       <Route path="/about" component={About} />
-      <Route path="/movie-detail" exact={true} component={MovieDetail} />
+      <Route path="/movie/:id" exact={true} component={MovieDetail} />
     </BrowserRouter>
   );
 }
